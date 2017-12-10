@@ -1,8 +1,8 @@
 <?php
   class EntityBase {
     # Atributos
-    private $db,
-            $table,
+    protected $db;
+    private $table,
             $connection;
 
     # Constructor

@@ -33,4 +33,9 @@
   $data = $model -> getAll();
   echo '<pre>'; var_dump( $data ); echo '</pre>';
 
+  # Obtener registros consulta personalizada
+  echo '<h3>Obtener registros consulta personalizada</h3>';
+  $query = "SELECT * FROM usuarios WHERE nombres LIKE 'P%'; ";
+  $data = $model -> executeSql( $query );
+  echo '<pre>'; var_dump( $data ); echo '</pre>';
 ?>
