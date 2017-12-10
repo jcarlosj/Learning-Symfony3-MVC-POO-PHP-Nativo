@@ -87,6 +87,35 @@
       return $query;
     }
 
+    # Ejecuta una consulta personalizada
+    public function executeSql( $query ) {
+      $resultSet = false;
+
+      $query = $this -> db -> query( $query );
+
+      if( $query == true ) {
+        if( $query -> num_rows > 1 ) {
+
+          while( $row = $query -> fetch_object() ) {
+              $resultSet[] = $row;
+          }
+
+        }
+        else if( $query == 1 ) {
+
+          if( $row = $query -> fetch_object() ) {
+              $resultSet = $row;
+          }
+
+        }
+      }
+      else {
+        $resultSet = false;
+      }
+
+      return $resultSet;
+    }
+
     /* NOTA: Se pueden crear todo timpo de métodos que nos ayuden a hacer
              operaciones con la Base de Datos con la Entidad */
 

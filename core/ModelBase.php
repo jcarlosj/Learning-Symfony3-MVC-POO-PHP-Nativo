@@ -34,6 +34,10 @@
       return parent :: deleteBy( $field, $value );
     }
 
+    public function executeSql( $query ) {
+      return parent :: executeSQL( $query );
+    }
+
     /* NOTA: Se pueden crear todo tipo de métodos que nos ayuden a hacer
              operaciones con la Base de Datos con la Entidad */
 
