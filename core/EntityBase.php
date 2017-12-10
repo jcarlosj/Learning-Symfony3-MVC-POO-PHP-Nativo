@@ -55,7 +55,7 @@
 
     # Devuelve registro por campo y su valor
     public function getBy( $field, $value ) {
-      $resultSet = '';        # Inicializa
+      $resultSet = array();        # Inicializa
 
       $query = $this -> db -> query(
         "SELECT * FROM $this->table WHERE $field = '$value'; "
@@ -81,7 +81,7 @@
     # Elimina registro por campo y su valor
     public function deleteBy( $field, $value ) {
       $query = $this -> db -> query(
-        "DELETE FROM $this->table WHERE $field = '$value'"
+        "DELETE FROM $this->table WHERE $field = '$value'; "
       );
 
       return $query;
