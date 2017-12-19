@@ -28,7 +28,6 @@
         }
       }
 
-
       require_once 'views/' .$view. '.php';     # Lanza la vista
     }
 

@@ -4,14 +4,14 @@
 
     # Constructor
     public function __construct() {
-      echo 'Saludos desde "UserController.php"<br />';
+      # TEST: echo 'Saludos desde "UserController.php"<br />';
 
       parent :: __construct();
     }
 
     # Method: Inicial
     public function index() {
-      echo 'Saludos desde el método <b>[index]</b> desde el <b>UserController</b>';
+      # TEST: echo 'Saludos desde el método <b>[index]</b> desde el <b>UserController</b>';
 
       $user = new User( $this -> db ); # Instancia la estructura de la Entidad
       $all_users = $user -> getAll(); # Obtiene todos los usuarios de la Entidad

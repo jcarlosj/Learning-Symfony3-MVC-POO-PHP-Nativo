@@ -39,8 +39,8 @@
             exit;
         }
 
-        echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos, es genial." . PHP_EOL;
-        echo "Información del host: " . mysqli_get_host_info($connect) . PHP_EOL;
+        # TEST: echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos, es genial." . PHP_EOL;
+        # TEST: echo "Información del host: " . mysqli_get_host_info($connect) . PHP_EOL;
 
         return $connect;
       }

@@ -30,8 +30,7 @@
     }
 
     public static function executeAction( $controller, $action ) {
-      # TEST:
-      echo '<p><b>Controlador: </b>'; var_dump( $controller ); echo '<br /><b>Método: </b>'; var_dump( $action ); echo '</p>'; 
+      # TEST: echo '<p><b>Controlador: </b>'; var_dump( $controller ); echo '<br /><b>Método: </b>'; var_dump( $action ); echo '</p>'; 
       $controller -> $action();
     }
 

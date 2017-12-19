@@ -1,6 +1,3 @@
-<h1>MVC POO PHP Nativo</h1>
-<p>index.php</p>
-
 <?php
   # Carga la configuración Global
   require_once 'configuration/global.conf.php';
