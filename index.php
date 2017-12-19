@@ -14,9 +14,11 @@
   if( isset( $_GET[ 'controller' ] ) ) {
     # NOTA: /?controller=hola - (crea la cadena) - "controllers/HolaController.php"
     $controller = $bootstrap -> loadController( $_GET[ 'controller' ] );
+    $bootstrap -> loadMethod( $controller, $_GET[ 'controller' ] );
   }
   else {
     $controller = $bootstrap -> loadController( ucwords( DEFAULT_CONTROLLER ) );
+    $bootstrap -> loadMethod( $controller, DEFAULT_METHOD );
   }
 
 ?>

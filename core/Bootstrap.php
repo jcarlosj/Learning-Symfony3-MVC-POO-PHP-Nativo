@@ -10,10 +10,29 @@
       # Valida si NO existe el PATH del Controlador
       if( !is_file( $path_controller ) ) {
         $path_controller = 'controllers/' .ucwords( DEFAULT_CONTROLLER ). 'Controller.php'; # Redirecciona al controlador por defecto
+        $controller = ucwords( DEFAULT_CONTROLLER ). 'Controller';
       }
 
-      var_dump( $path_controller ); exit;
+      require_once $path_controller;  # Solicita el controlador
 
+      return new $controller();       # Instancia el controlador existente y lo retorna
+    }
+
+    public static function loadMethod( $controller ) {
+
+      if( isset( $_GET[ 'action' ] ) && method_exists( $controller, $_GET[ 'action' ] ) ) {
+        self :: executeAction( $controller, $_GET[ 'action' ] );
+      }
+      else {
+        self :: executeAction( $controller, DEFAULT_METHOD );
+      }
+
+    }
+
+    public static function executeAction( $controller, $action ) {
+      # TEST:
+      echo '<p><b>Controlador: </b>'; var_dump( $controller ); echo '<br /><b>Método: </b>'; var_dump( $action ); echo '</p>'; 
+      $controller -> $action();
     }
 
   }
