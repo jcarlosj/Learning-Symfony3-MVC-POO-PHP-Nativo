@@ -1,12 +1,16 @@
 <?php
   class ControllerBase {
     # Atributos
+    protected $connection;
 
     # Constructor
     public function __construct() {
       require_once 'EntityBase.php';
       require_once 'ModelBase.php';
       require_once 'DataBase.php';
+
+      $this -> connection = new DataBase();
+      $this -> db = $this -> connection -> connect();
 
       # Incluye todos los archivos del modelo
       foreach ( glob( 'models/*.php' ) as $file ) {

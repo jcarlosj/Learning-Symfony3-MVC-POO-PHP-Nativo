@@ -1,17 +1,12 @@
 <?php
   class UserController extends ControllerBase {
     # Atributos
-    private $db,
-            $connection;
 
     # Constructor
     public function __construct() {
       echo 'Saludos desde "UserController.php"<br />';
 
       parent :: __construct();
-
-      $this -> connection = new DataBase();
-      $this -> db = $this -> connection -> connect();
     }
 
     # Method: Inicial
