@@ -20,10 +20,16 @@
         'user/index',     # Nombre de la vista
         array(
           'all_users' => $all_users
-)      );
+        )
+      );
     }
 
-    # Method: Inicial
+    public function create() {
+      # TEST:
+      echo 'Saludos desde el método <b>[create]</b> desde el <b>UserController</b>';
+    }
+
+    # Method: Ejemplo
     public function hello() {
       echo 'Saludos desde el método <b>[hello]</b> desde el <b>UserController</b>';
 

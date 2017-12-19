@@ -16,6 +16,7 @@
       foreach ( glob( 'models/*.php' ) as $file ) {
         require_once $file;
       }
+
     }
 
     # Method: Despliega la Vista
@@ -27,6 +28,10 @@
           ${$key} = $value;
         }
       }
+
+      # Implementa Helpers
+      require_once 'core/Helpers.php';
+      $helper = new Helpers();
 
       require_once 'views/' .$view. '.php';     # Lanza la vista
     }
