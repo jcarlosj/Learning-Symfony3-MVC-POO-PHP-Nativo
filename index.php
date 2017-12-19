@@ -2,25 +2,21 @@
 <p>index.php</p>
 
 <?php
-  require_once 'core/DataBase.php';
-
+  # Carga la configuración Global
+  require_once 'configuration/global.conf.php';
+  # Carga Controlador Base
   require_once 'core/ControllerBase.php';
-  $controllerBase = new ControllerBase();
+  # Carga el Lanzador de la aplicación
+  require_once 'core/Bootstrap.php';
+  $bootstrap = new Bootstrap();
 
-  $users = new UsersModel();
-
-  $email = 'pedro@correo.co';
-  $user = $users -> getUserByEmail( $email );
-
-  # TEST: var_dump( $user );
-
-  if( $user ) {
-    echo '<p><b>Nombres: </b>' .$user -> nombres. '<br />'.
-         '<b>Apellidos: </b>' .$user -> apellidos. '<br />'.
-         '<b>Correo: </b>' .$user -> email. '</p>';
+  # Carga los controladores desde el Lanzador
+  if( isset( $_GET[ 'controller' ] ) ) {
+    # NOTA: /?controller=hola - (crea la cadena) - "controllers/HolaController.php"
+    $controller = $bootstrap -> loadController( $_GET[ 'controller' ] );
   }
   else {
-    echo '<p>No se ha encontrado ningun registro con el correo ' .$email. '</p>';
+    $controller = $bootstrap -> loadController( ucwords( DEFAULT_CONTROLLER ) );
   }
 
 ?>
