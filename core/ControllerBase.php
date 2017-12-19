@@ -36,5 +36,10 @@
       require_once 'views/' .$view. '.php';     # Lanza la vista
     }
 
+    # Method: Genera Redirecciona
+    public function redirect( $controller = DEFAULT_CONTROLLER, $action = DEFAULT_METHOD ) {
+      header( 'Location:index.php?controller=' .$controller. '&action=' .$action );
+    }
+
   }
 ?>
