@@ -39,7 +39,7 @@
       $resultSet = false;
 
       $query = $this -> db -> query( $query );
-
+      
       if( $query == true ) {
         if( $query -> num_rows > 1 ) {
 
@@ -48,7 +48,7 @@
           }
 
         }
-        else if( $query == 1 ) {
+        else if( $query -> num_rows == 1 ) {
 
           if( $row = $query -> fetch_object() ) {
               $resultSet = $row;
