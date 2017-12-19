@@ -1,19 +1,31 @@
 <?php
   class UserController extends ControllerBase {
     # Atributos
+    private $db,
+            $connection;
 
     # Constructor
     public function __construct() {
       echo 'Saludos desde "UserController.php"<br />';
+
+      parent :: __construct();
+
+      $this -> connection = new DataBase();
+      $this -> db = $this -> connection -> connect();
     }
 
     # Method: Inicial
     public function index() {
       echo 'Saludos desde el método <b>[index]</b> desde el <b>UserController</b>';
 
+      $user = new User( $this -> db ); # Instancia la estructura de la Entidad
+      $all_users = $user -> getAll(); # Obtiene todos los usuarios de la Entidad
+
       $this -> view(
-        'user/index'      # Nombre de la vista
-      );
+        'user/index',     # Nombre de la vista
+        array(
+          'all_users' => $all_users
+)      );
     }
 
     # Method: Inicial

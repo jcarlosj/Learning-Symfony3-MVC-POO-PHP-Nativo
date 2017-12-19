@@ -6,6 +6,7 @@
     public function __construct() {
       require_once 'EntityBase.php';
       require_once 'ModelBase.php';
+      require_once 'DataBase.php';
 
       # Incluye todos los archivos del modelo
       foreach ( glob( 'models/*.php' ) as $file ) {

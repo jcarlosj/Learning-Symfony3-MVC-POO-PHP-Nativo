@@ -6,11 +6,11 @@
             $connection;
 
     # Constructor
-    public function __construct( $table ) {
+    public function __construct( $table, $db ) {
       $this -> table = (string) $table;
 
-      $this -> connection = new DataBase();
-      $this -> db = $this -> connection -> connect();
+      $this -> connection = null;
+      $this -> db = $db;
     }
 
     # Devuelve la conexión de la Base de Datos
