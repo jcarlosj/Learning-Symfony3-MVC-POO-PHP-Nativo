@@ -14,11 +14,17 @@
     }
 
     # Method: Despliega la Vista
-    function view( $view, $data ) {
-      # Recorre 'array' asociativo $data
-      foreach ( $data as $key => $value ) {
-        ${$key} = $value;
+    public function view( $view, $data = null ) {
+
+      if( $data ) {
+        # Recorre 'array' asociativo $data
+        foreach ( $data as $key => $value ) {
+          ${$key} = $value;
+        }
       }
+
+
+      require_once 'views/' .$view. '.php';     # Lanza la vista
     }
 
   }
