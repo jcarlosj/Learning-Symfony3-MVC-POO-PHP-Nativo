@@ -46,6 +46,19 @@
       $this -> clave = $clave;
     }
     # Otras acciones
-    # ...
+    public function save() {
+      $query = "INSERT INTO usuarios ( id, nombres, apellidos, email, clave )
+                     VALUES (
+                       NULL,
+                       '" .$this -> nombres. "',
+                       '" .$this -> apellidos. "',
+                       '" .$this -> email. "',
+                       '" .$this -> clave. "'
+                     ); ";
+       # TEST: echo $query; exit;
+                       
+       $save = $this -> db -> query( $query );
+       return $save;
+    }
   }
 ?>

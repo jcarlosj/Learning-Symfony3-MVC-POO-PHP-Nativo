@@ -21,7 +21,7 @@
         </p>
         <p>
           <label for="">Contraseña</label>
-          <input type="text" name="claves" value="" />
+          <input type="text" name="clave" value="" />
         </p>
         <p>
           <button type="submit" name="button">Enviar</button>
