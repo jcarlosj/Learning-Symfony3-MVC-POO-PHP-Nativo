@@ -32,6 +32,7 @@
       <?php foreach ( $all_users as $key => $user ) : ?>
         <li>
           <?php echo $user -> id. ' - '. $user -> nombres. ' - '. $user -> apellidos. ' - '. $user -> email; ?>
+          <a href="<?php echo $helper -> url( 'user', 'eliminar' ); ?>&id=<?php echo $user -> id; ?>">Borrar</a>
         </li>
       <?php endforeach; ?>
     </ul>

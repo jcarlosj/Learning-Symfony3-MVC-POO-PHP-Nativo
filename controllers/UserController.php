@@ -33,6 +33,17 @@
       return $count;
     }
 
+    public function eliminar() {
+      if( isset( $_GET[ 'id' ] ) ) {
+        $id = (int) $_GET[ 'id' ];
+
+        $usuario = new User( $this -> db );
+        $usuario -> deleteById( $id );
+      }
+
+      $this -> redirect();
+    }
+
     public function create() {
       # TEST:
       echo 'Saludos desde el método <b>[create]</b> desde el <b>UserController</b>';
